@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using HomeWork1.Interface;
+﻿using HomeWork1.Interface;
 
 namespace HomeWork1.Collections
 {
