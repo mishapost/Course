@@ -17,7 +17,7 @@ namespace HomeWork1.Collections
             _test.Add(new TestKey1(), new TestValue1(123));
             _test.Add(new TestKey1(), new TestValue2(456));
             _test.Add(new TestKey2(Guid.NewGuid()), new TestValue1(789));
-            _test.Add(new TestKey2(Guid.NewGuid()), new TestValue1(012));
+            _test.Add(new TestKey2(Guid.NewGuid()), new TestValue2(012));
             Output();
 
             var key = new TestKey1();

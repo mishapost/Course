@@ -50,6 +50,25 @@ namespace HomeWork1.Collections
             }
             Output();
 
+            Console.WriteLine("Удаляю элемент с середины");
+            middle = _test.Count / 2;
+            enumerator = 0;
+            foreach (var item in _test)
+            {
+                enumerator++;
+                if (enumerator != middle) continue;
+                node = _test.Find(item);
+                break;
+            }
+
+            if (node != null)
+            {
+                _test.Remove(node);
+            }
+            Output();
+
+
+
 
             void Output()
             {
