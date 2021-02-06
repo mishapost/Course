@@ -117,11 +117,7 @@ namespace HomeWork5_Calc
             lbHistory.Text+=_calc.AddOperand(tbResult.Text);
             lbHistory.Text += "=";
             tbResult.Text = _calc.Result();
-            btSeparator.Enabled = true;
-            btPlus.Enabled = true;
-            btMinus.Enabled = true;
-            btDivide.Enabled = true;
-            btMultiply.Enabled = true;
+            btEqually.Enabled = false;
         }
 
         private void btReset_Click(object sender, EventArgs e)
@@ -134,6 +130,7 @@ namespace HomeWork5_Calc
             btMinus.Enabled = true;
             btDivide.Enabled = true;
             btMultiply.Enabled = true;
+            btEqually.Enabled = true;
         }
 
         private void btInverse_Click(object sender, EventArgs e)
