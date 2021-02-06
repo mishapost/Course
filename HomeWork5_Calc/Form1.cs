@@ -79,39 +79,37 @@ namespace HomeWork5_Calc
 
         private void btPlus_Click(object sender, EventArgs e)
         {
-            AddNum("+");
+            
+             AddNum("+");
         }
 
         private void btMinus_Click(object sender, EventArgs e)
         {
-            AddNum("-");
+             AddNum("-");
         }
 
         private void btDivide_Click(object sender, EventArgs e)
         {
-            AddNum("/");
+             AddNum("/");
         }
 
         private void btMultiply_Click(object sender, EventArgs e)
         {
-            AddNum("*");
+             AddNum("*");
         }
 
         private void AddNum(string typeOperation)
         {
+ 
             lbHistory.Text+=_calc.AddOperand(tbResult.Text);
             tbResult.Text = string.Empty;
             _calc.TypeOperation = typeOperation;
             lbHistory.Text += _calc.TypeOperation;
             btSeparator.Enabled = true;
-            //btEqually.Enabled = _calc.OperandOne != default && _calc.OperandTwo != default;
-
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            //btEqually.Enabled = false;
+            btPlus.Enabled = false;
+            btMinus.Enabled = false;
+            btDivide.Enabled = false;
+            btMultiply.Enabled = false;
         }
 
         private void btEqually_Click(object sender, EventArgs e)
@@ -120,6 +118,10 @@ namespace HomeWork5_Calc
             lbHistory.Text += "=";
             tbResult.Text = _calc.Result();
             btSeparator.Enabled = true;
+            btPlus.Enabled = true;
+            btMinus.Enabled = true;
+            btDivide.Enabled = true;
+            btMultiply.Enabled = true;
         }
 
         private void btReset_Click(object sender, EventArgs e)
@@ -128,6 +130,10 @@ namespace HomeWork5_Calc
             tbResult.Text = string.Empty;
             lbHistory.Text = string.Empty;
             btSeparator.Enabled = true;
+            btPlus.Enabled = true;
+            btMinus.Enabled = true;
+            btDivide.Enabled = true;
+            btMultiply.Enabled = true;
         }
 
         private void btInverse_Click(object sender, EventArgs e)

@@ -15,9 +15,9 @@ namespace HomeWork5_Calc
            _culture = CultureInfo.CreateSpecificCulture("ru-RU");
         }
 
-        public decimal OperandOne  { get; set; }
+        public decimal? OperandOne  { get; set; }
 
-        public decimal OperandTwo { get; set; }
+        public decimal? OperandTwo { get; set; }
 
         public string  TypeOperation { get; set; }
 
@@ -37,17 +37,17 @@ namespace HomeWork5_Calc
             var resultConvert = Decimal.TryParse(operand, NumberStyles.Any, _culture, out var value);
 
             if (!resultConvert) value=0;
-            
-            if (OperandOne == default || (OperandOne!=default && OperandTwo!=default))
+
+            if (OperandOne == null || (OperandOne!=null && OperandTwo!=null))
             {
                 OperandOne = value;
                 OperandTwo = default;
-                return Math.Round(OperandOne, format).ToString(_culture);
+                return Math.Round((decimal) OperandOne, format).ToString(_culture);
             }
             else
             {
                 OperandTwo = value;
-                return Math.Round(OperandTwo, format).ToString(_culture);
+                return Math.Round((decimal) OperandTwo, format).ToString(_culture);
             }
         }
 
@@ -57,15 +57,19 @@ namespace HomeWork5_Calc
             switch (TypeOperation)
             {
                 case "+":
-                    return (OperandOne + OperandTwo).ToString(_culture);
+                    if (OperandOne != null && OperandTwo != null) return (OperandOne + OperandTwo).ToString();
+                    break;
                 case "-":
-                    return (OperandOne - OperandTwo).ToString(_culture);
+                    if (OperandOne != null && OperandTwo != null) return (OperandOne - OperandTwo).ToString();
+                    break;
                 case "*":
-                    return (OperandOne * OperandTwo).ToString(_culture);
+                    if (OperandOne != null && OperandTwo != null) return (OperandOne * OperandTwo).ToString();
+                    break;
                 case "/":
                     try
                     {
-                        return (OperandOne / OperandTwo).ToString(_culture);
+                        if (OperandOne != null && OperandTwo != null) return (OperandOne / OperandTwo).ToString();
+                        break;
                     }
                     catch (Exception e)
                     {
@@ -73,12 +77,14 @@ namespace HomeWork5_Calc
                     }
                 default: return "Что-то пошло не так";
             }
+
+            return null;
         }
 
         public void Reset()
         {
-            OperandOne = default;
-            OperandTwo = default;
+            OperandOne = null;
+            OperandTwo = null;
             TypeOperation = string.Empty;
             
         }
