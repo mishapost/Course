@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "CharactersConnectionString": "Server=srvtest\\sql;Database=HomeWork9;User Id = sa; Password = Dz0K1b"
+  }
+}
